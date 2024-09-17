@@ -1,0 +1,28 @@
+<form [formGroup] = "receiptForm" (submit)="saveReceipt()">
+    <label for="customer">Customer:</label>
+    <select formControlName="customer">
+      <option *ngFor="let customer of customers" [value]="customer.name">{{ customer.name }}</option>
+    </select>
+<!--   
+    <label for="name">Name:</label>
+    <input type="text" formControlName="name"> -->
+  
+    <label for="date">Date:</label>
+    <input type="date" formControlName="date">
+  
+    <label for="paymentMethod">Payment Method:</label>
+    <select formControlName="paymentMethods">
+      <option value="credit-card">אשראי</option>
+      <option value="cash">מזומן</option>
+      <option value="check">צ'ק</option>
+    </select>
+  
+    <label for="amount">Amount:</label>
+    <input type="number" formControlName="amount">
+  
+    <label for="details">Details:</label>
+    <textarea formControlName="details"></textarea>
+  
+    <button type="submit">Save</button>
+  </form>
+  
