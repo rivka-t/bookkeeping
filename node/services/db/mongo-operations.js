@@ -15,8 +15,6 @@ class MongoOperations {
     }
 
     async insertItem(document) {
-        // console.log(this.myCollection);
-        
         const result = await this.myCollection.insertOne(document);
         return result;
     }
