@@ -1,1 +1,14 @@
-<p>revenues works!</p>
+<div>
+    <label>מספר זיהוי:</label>
+    <span [innerText]="revenue.id"></span>
+    <label>לקוח:</label>
+    <span>{{revenue.customer}}</span>
+    <label>תאריך:</label>
+    <span [innerText]="revenue.date"></span>
+    <label>סכום:</label>
+    <span [innerText]="revenue.amount"></span>
+    <label>אופן תשלום:</label>
+    <span [innerText]="revenue.paymentMethods"></span>
+    <label>פירוט:</label>
+    <span [innerText]="revenue.details"></span>
+</div>

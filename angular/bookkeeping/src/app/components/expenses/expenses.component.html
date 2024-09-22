@@ -1,1 +1,18 @@
-<p>expenses works!</p>
+<form [formGroup] = "expenseForm" (submit)="saveExpense()">
+<div>הוצאה חדשה</div>
+<label>הכנס תאריך</label>
+<input type="date" formControlName="date">
+<label>הכנס סכום</label>
+<input type="number" formControlName="amount">
+<label>הכנס ספק</label>
+<input type="text" formControlName="provider">
+<label>בחר אופן תשלום</label>
+<select formControlName="paymentMethod">
+    <option value="credit-card">אשראי</option>
+    <option value="cash">מזומן</option>
+    <option value="check">צ'ק</option>
+</select>
+<label>הכנס פירוט</label>
+<input type="text" formControlName="details">
+<input type="submit" value="שמירה">
+</form>

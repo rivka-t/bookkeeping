@@ -3,6 +3,7 @@ export interface Customer{
     num:number
 }
 export interface Receipt{
+    id:number
     customer:Customer,
     date:Date,
     paymentMethods:string,

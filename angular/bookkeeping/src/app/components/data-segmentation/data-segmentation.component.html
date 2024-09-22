@@ -1,15 +1,29 @@
-<input type="button" value="הוצאות"><br>
-<input type="text" placeholder="לפי שנה"><br>
-<input type="text" placeholder="לפי חדש"><br>
-<input type="button" value="בין טווח תאריכים"><br>
-<input type="date">
-<input type="date"><br>
-<input type="button" value="הכנסות">
-<input type="text" placeholder="לפי שנה"><br>
-<input type="text" placeholder="לפי חדש"><br>
-<input type="button" value="בין טווח תאריכים"><br>
-<input type="date">
-<input type="date">
-<!-- <select [value]="לפי לקוח" (click)="getAllCustomers()">
-    <option></option>
-</select> -->
+<div class="all">
+    <input type="button" value="הוצאות" (click)="flagExpense=true ; flagRevenue=false" class="header">
+    <input type="button" value="הכנסות" (click)="flagRevenue=true; flagExpense=false" class="header">
+</div>
+<div *ngIf="flagExpense||flagRevenue" class="allTags">
+    <input type="button" value="לפי שנה" (click)="flagY=true;flagBetween=false;flagM=false;flagCust=false;filter='y'"><br>
+    <input type="button" value="לפי חדש" (click)="flagM=true; flagBetween=false;flagY=false;flagCust=false;filter='m'"><br>
+    <input type="button" value="בין טווח תאריכים" (click)="flagBetween=true;flagCust=false;flagY=false; flagM=false;filter='2'"><br>
+    <div *ngIf="flagRevenue">
+        <input type="button" value="לפי לקוח" (click)="flagCust=true;flagBetween=false;flagM=false;flagY=false;filter='cust'">
+        </div>
+    <div *ngIf="flagY">
+        <input type="number" (input)="onYearInputChange($event)">
+    </div>
+    <div *ngIf="flagM">
+        <input type="number" (input)="onMonthInputChange($event)">
+    </div>
+</div>
+<div *ngIf="flagBetween">
+    <input type="date" (change)="onInput1Change($event)">
+    <input type="date" (change)="onInput2Change($event)">
+</div>
+<select *ngIf="flagCust" (change)="onCustChange($event)">
+    <option>בחר לקוח</option>
+    <option *ngFor="let customer of customers" [value]="customer.name">{{customer.name}}</option>
+</select>
+<div *ngIf="flagExpense"><app-payment *ngFor="let expense of this.expenses" [expense]="expense"></app-payment></div>
+<div *ngIf="flagRevenue"><app-revenues *ngFor="let revenue of this.revenue" [revenue]="revenue"></app-revenues></div>
+<input type="submit" value="אישור" class="header" (click)="save()">
