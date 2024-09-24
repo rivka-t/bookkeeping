@@ -3,13 +3,12 @@
     <select formControlName="customer">
       <option *ngFor="let customer of customers" [value]="customer.name">{{ customer.name }}</option>
     </select>
-    <input type="button" value="הוספת לקוח חדש" (click)="flagNew=true">
+    <input type="button" id="addBut" value="הוספת לקוח חדש" (click)="flagNew=true">
     <div *ngIf="flagNew">
       <input type="text" placeholder="הכנס שם לקוח" (input)="enterName($event)">
       <input type="number" placeholder="הכנס מספר לקוח" (input)="enterNum($event)">
-      <input type="button" value="הוספת לקוח" (click)="addCustomer()">
+      <input type="button" value="✔️ הוספת לקוח" (click)="addCustomer()">
     </div>
-  
     <label for="date">Date:</label>
     <input type="date" formControlName="date">
   
@@ -19,9 +18,8 @@
       <option value="cash">מזומן</option>
       <option value="check">צ'ק</option>
     </select>
-  
-    <label for="amount">Amount:</label>
-    <input type="number" formControlName="amount">
+    <label for="amount">  Amount:</label>
+    <input type="number" id="AmountBut" formControlName="amount">
   
     <label for="details">Details:</label>
     <textarea formControlName="details"></textarea>
