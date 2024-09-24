@@ -26,4 +26,4 @@
 </select>
 <div *ngIf="flagExpense"><app-payment *ngFor="let expense of this.expenses" [expense]="expense"></app-payment></div>
 <div *ngIf="flagRevenue"><app-revenues *ngFor="let revenue of this.revenue" [revenue]="revenue"></app-revenues></div>
-<input type="submit" value="אישור" class="header" (click)="save()">
+<input type="submit" value="אישור" class="OK" (click)="save()">
