@@ -61,44 +61,37 @@ save(){
   if(this.flagExpense){
   if(this.filter=='y'){
     this.dataService.getExpenseByYear(this.value1).subscribe((data:any[])=>{
-      console.log(data);
       this.expenses=data
     })
   }
   if(this.filter=='m'){
     this.dataService.getExpenseByMonth(this.value1).subscribe((data:any[])=>{
-      console.log(data);
       this.expenses=data
     })
   }
   if(this.filter=='2'){
     this.dataService.getExpenseBy2Date(new Date(this.value1),new Date(this.value2)).subscribe((data:any[])=>{
-      console.log(data);
       this.expenses=data
     })
   }
 }else{
   if(this.filter=='y'){
     this.dataService.getRevenueByYear(this.value1).subscribe((data:any[])=>{
-      console.log(data);
       this.revenue=data
     })
   }
   if(this.filter=='m'){
     this.dataService.getRevenueByMonth(this.value1).subscribe((data:any[])=>{
-      console.log(data);
       this.revenue=data
     })
   }
   if(this.filter=='2'){
     this.dataService.getRevenueBy2Date(new Date(this.value1),new Date(this.value2)).subscribe((data:any[])=>{
-      console.log(data);
       this.revenue=data
     })
   }
   if(this.filter=='cust'){  
     this.dataService.getByCustomer(this.value1).subscribe((data:any[])=>{
-      console.log(data);
       this.revenue=data
     })
   }}

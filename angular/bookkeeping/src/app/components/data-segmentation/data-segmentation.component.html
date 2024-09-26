@@ -1,14 +1,16 @@
 <div class="all">
-    <input type="button" value="הוצאות" (click)="flagExpense=true ; flagRevenue=false" class="header">
-    <input type="button" value="הכנסות" (click)="flagRevenue=true; flagExpense=false" class="header">
+    <input type="button" value="הוצאות" (click)="flagExpense=true ; flagRevenue=flagBetween=flagY=flagM=flagCust=false;"
+        class="header">
+    <input type="button" value="הכנסות" (click)="flagRevenue=true; flagExpense=flagBetween=flagY=flagM=flagCust=false"
+        class="header">
 </div>
 <div *ngIf="flagExpense||flagRevenue" class="allTags">
-    <input type="button" value="לפי שנה" (click)="flagY=true;flagBetween=false;flagM=false;flagCust=false;filter='y'"><br>
-    <input type="button" value="לפי חדש" (click)="flagM=true; flagBetween=false;flagY=false;flagCust=false;filter='m'"><br>
-    <input type="button" value="בין טווח תאריכים" (click)="flagBetween=true;flagCust=false;flagY=false; flagM=false;filter='2'"><br>
+    <input type="button" value="לפי שנה" (click)="flagY=true;flagBetween=flagM=flagCust=false;filter='y'"><br>
+    <input type="button" value="לפי חדש" (click)="flagM=true; flagBetween=flagY=flagCust=false;filter='m'"><br>
+    <input type="button" value="בין טווח תאריכים" (click)="flagBetween=true;flagCust=flagY=flagM=false;filter='2'"><br>
     <div *ngIf="flagRevenue">
-        <input type="button" value="לפי לקוח" (click)="flagCust=true;flagBetween=false;flagM=false;flagY=false;filter='cust'">
-        </div>
+        <input type="button" value="לפי לקוח" (click)="flagCust=true;flagBetween=flagM=flagY=false;filter='cust'">
+    </div>
     <div *ngIf="flagY">
         <input type="number" (input)="onYearInputChange($event)">
     </div>

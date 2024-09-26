@@ -20,17 +20,15 @@ export class DataService {
     return this.http.get<Array<any>>(`${this.apiUrl}/expense/getByMonth/${filter}`);
   }
   getExpenseBy2Date(startDate: Date, endDate: Date): Observable<Array<any>> {
-    console.log({ startDate }, { endDate });
     return this.http.get<Array<any>>(`${this.apiUrl}/expense/getBy2Date/${startDate}/${endDate}`);
   }
-  getRevenueByYear(filter: any): Observable<Array<any>> { 
+  getRevenueByYear(filter: any): Observable<Array<any>> {
     return this.http.get<Array<any>>(`${this.apiUrl}/receipt/getByYear/${filter}`);
   }
   getRevenueByMonth(filter: any): Observable<Array<any>> {
     return this.http.get<Array<any>>(`${this.apiUrl}/receipt/getByMonth/${filter}`);
   }
   getRevenueBy2Date(startDate: Date, endDate: Date): Observable<Array<any>> {
-    console.log({ startDate }, { endDate });
     return this.http.get<Array<any>>(`${this.apiUrl}/receipt/getBy2Date/${startDate}/${endDate}`);
   }
   getByCustomer(customer: any): Observable<Array<any>> {

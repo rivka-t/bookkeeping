@@ -49,9 +49,8 @@ export class ReceiptComponent implements OnInit {
 
   addCustomer(): void {
     this.dataService.addCustomer(this.newCustomer).subscribe((response) => {
-      console.log('Customer added successfully', response);
-      this.customers.push(this.newCustomer); // Update the local list of customers
-      this.newCustomer = { name: '', num: 0 }; // Reset the new customer object
+      this.customers.push(this.newCustomer); 
+      this.newCustomer = { name: '', num: 0 }; 
     });
   }
 
@@ -59,14 +58,7 @@ export class ReceiptComponent implements OnInit {
     if (this.receiptForm.valid) {
       this.id++;
       this.receiptForm.patchValue({ id: this.id });
-      this.dataService.addReceipt(this.receiptForm.value).subscribe(
-        (response) => {
-          console.log('Receipt added successfully', response);
-        },
-        (error) => {
-          console.log('Error adding receipt:', error);
-        }
-      );
+      this.dataService.addReceipt(this.receiptForm.value).subscribe();
     } else {
       alert('Please fill in all required fields correctly.');
     }
